@@ -8,9 +8,10 @@ import (
 
 type TestRouter struct{}
 
-func (s *TestRouter) InitTestRouter(Router *gin.RouterGroup) {
-	userRouter := Router.Group("user").Use(middleware.OperationRecord())
+func (t *TestRouter) TestUserRouter(Router *gin.RouterGroup) {
+	TestUserRouter := Router.Group("test").Use(middleware.OperationRecord())
+	TestApi := v1.ApiGroupApp.SystemApiGroup.TestApi
 	{
-		userRouter.POST("testT", v1.TestT)
+		TestUserRouter.POST("testT", TestApi.TestT)
 	}
 }

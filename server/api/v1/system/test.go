@@ -5,7 +5,9 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func TestT(c *gin.Context) {
+type TestApi struct{}
+
+func (t *TestApi) TestT(c *gin.Context) {
 
 	response.Ok(c)
 }
